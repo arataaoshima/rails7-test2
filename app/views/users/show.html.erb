@@ -1,0 +1,15 @@
+<h1 class="text-center"> User Detail</h1>
+
+<h2>User Name:<%= @user.username %></h2>
+<h2>Email: <%= @user.email %></h2>
+<h5>Created at: <%= @user.created_at %></h5>
+<p>
+<%= link_to "Delete this User", user_path(@user), data: { turbo_method: :delete }, class:"btn btn-outline-danger" %>
+</p>
+<br>
+<%= link_to "ALL User", users_path, class:"btn btn-outline-secondary" %>
+<div class="text-center">
+  <% @user.posts.each do |p| %>
+    <p><%= link_to p.title, post_path(p) %></p>
+  <% end %>
+</div>

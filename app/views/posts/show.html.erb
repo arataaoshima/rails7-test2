@@ -1,0 +1,16 @@
+<h1 class="text-center"> Post Detail</h1>
+<div class="text-center">
+  <% @post.categories.each do |category| %>
+    <div class="btn btn-outline-secondary"><%= link_to category.category_name, category_path(category) %></div>
+  <% end %>
+</div>
+<h2>Title: <%= @post.title %></h2>
+<h5>Created at: <%= @post.created_at %></h5>
+<h4><%= @post.content %></h4>
+<p>
+<%= link_to "Delete this Post", post_path(@post), data: { turbo_method: :delete }, class:"btn btn-danger" %>
+</p>
+<br>
+<p>
+<%= link_to "ALL Posts", posts_path, class:"btn btn-success" %>
+</p>
